@@ -1,0 +1,257 @@
+label {
+  display: block;
+  margin-top: 10px;
+}
+.container{
+  max-width: 1505px;
+
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+.video-container {
+  position: relative;
+  width: 500px;   height: 300px; 
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.content-container {
+  max-width: 800px; 
+  margin: 0 auto;
+  text-align: justify; 
+}
+
+.content-heading {
+  text-align: center;
+}
+.video-background {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 50px;
+}
+.flex-row-container {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container s{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.grey-button {
+  background-color: #808080; /* Grey color */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px; /* Optional: add rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.grey-button:hover {
+  background-color: #606060; /* Darker grey color on hover */
+}
+
+.flex-item {
+  color: white; 
+  text-align: center;
+  padding: 20px; 
+}
+
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1; 
+}
+
+.content-text {
+  text-indent: 20px; 
+}
+
+.content-text p {
+  display: inline-block;
+  position: relative;
+}
+
+.content-text p:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 10px;
+  height: 100%;
+  border-left: 2px solid black; 
+  z-index: -1;
+}
+
+
+.text-overlay {
+  position: absolute;
+  top: 10px; 
+  left: 20px; 
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0); 
+  padding: 10px;
+}
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: #31494F
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 50%; 
+  min-height: 50%;
+}
+#root{
+  background-color: #00072D
+
+}
+.css-1ri6ub7-MuiPaper-root-MuiCard-root
+{
+  background-color: #333333;
+}
+.MuiPaper-root .MuiPaper-elevation .MuiPaper-rounded .MuiPaper-elevation1 .MuiCard-root .css-1ri6ub7-MuiPaper-root-MuiCard-root
+{
+  background-color: #333333
+}
+.imgabt {
+  width: 80%;
+  height: 80%;
+}
+
+.bg-black {
+  background: #000;
+}
+
+.skill-block {
+  width: 30%;
+}
+
+@media (min-width: 991px) and (max-width:1200px) {
+  .skill-block {
+    padding: 32px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skill-block {
+    padding: 56px !important;
+  }
+}
+.MuiTypography-root .MuiTypography-body2{
+  color: white;
+}
+.container.mt-3{
+
+  background-color: #071630;
+
+}
+.gradient-custom-2 {
+  background: #7e40f6;
+
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(126, 64, 246, 1),
+    rgba(80, 139, 252, 1)
+  );
+
+  background: linear-gradient(
+    to right,
+    rgba(126, 64, 246, 1),
+    rgba(80, 139, 252, 1)
+  );
+}
+.MuiButtonBase-root .css-1ezt7l4-MuiButtonBase-root
+{
+  width: 49%;
+}
+
+.MuiBox-root.css-59tkof{
+  margin: auto;
+  padding-left: 393px;
+}
+
+.mask-custom {
+  background: rgba(24, 24, 16, 0.2);
+  border-radius: 2em;
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
