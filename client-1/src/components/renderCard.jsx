@@ -84,7 +84,7 @@ const RenderCard = ({ appointment }) => {
 
     const handleClickDelete = async (id) => {
         const userId = localStorage.getItem('id')
-        const url = `http://localhost:5001/userAppointments/appointments/${id}`;
+        const url = `https://web-engineering-25e7.onrender.com/userAppointments/appointments/${id}`;
         const response = await axios.delete(url);
         if (response.data.includes('has been deleted')) {
             setAlert(true);
@@ -111,7 +111,7 @@ const RenderCard = ({ appointment }) => {
     }, [alertUp]);
 
     const handleClickOpenEdit = async (id) => {
-        const url = `http://localhost:5001/userAppointments/appointments/${id}`;
+        const url = `https://web-engineering-25e7.onrender.com/userAppointments/appointments/${id}`;
         const { data: res } = await axios.get(url);
         setFormData(res);
         console.log(res);
@@ -161,7 +161,7 @@ const RenderCard = ({ appointment }) => {
             userId: localStorage.getItem('id')
         }
 
-        const getUrl = `http://localhost:5001/userAppointments/editAppointments`;
+        const getUrl = `https://web-engineering-25e7.onrender.com/userAppointments/editAppointments`;
         const userResponse = await axios.put(getUrl, newData);
         console.log(userResponse);
         if (userResponse) {
