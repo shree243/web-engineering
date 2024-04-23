@@ -48,7 +48,6 @@ app.post("/auth/register", register);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/userAppointments", AppointmentRoutes);
-debugger;
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose
