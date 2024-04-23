@@ -49,7 +49,7 @@ const StyledButton = styled(Button)({
 });
 
 
-const RenderCard = ({ todo }) => {
+const RenderCard = ({ appointment }) => {
 
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -64,9 +64,9 @@ const RenderCard = ({ todo }) => {
         }),
     }));
 
-    const [allUsersTodos, setAllUsersTodos] = useState([{}])
-    const [allUsersImportantTodos, setAllUsersImportantTodos] = useState([{}])
-    const [allUsersCompletedTodos, setAllUsersCompletedTodos] = useState([{}])
+    const [allUsersAppointments, setAllUsersAppointments] = useState([{}])
+    const [allUsersImportantAppointments, setAllUsersImportantAppointments] = useState([{}])
+    const [allUsersCompletedAppointments, setAllUsersCompletedAppointments] = useState([{}])
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -84,8 +84,8 @@ const RenderCard = ({ todo }) => {
 
     const handleClickDelete = async (id) => {
         const userId = localStorage.getItem('id')
-        const url = `http://localhost:8081/api/todo/todos/delete/${id}`;
-        const response = await axios.get(url);
+        const url = `http://localhost:5001/userAppointments/appointments/${id}`;
+        const response = await axios.delete(url);
         if (response.data.includes('has been deleted')) {
             setAlert(true);
         }
@@ -111,7 +111,7 @@ const RenderCard = ({ todo }) => {
     }, [alertUp]);
 
     const handleClickOpenEdit = async (id) => {
-        const url = `http://localhost:8081/api/todo/getById/todos/${id}`;
+        const url = `http://localhost:5001/userAppointments/appointments/${id}`;
         const { data: res } = await axios.get(url);
         setFormData(res);
         console.log(res);
@@ -161,8 +161,8 @@ const RenderCard = ({ todo }) => {
             userId: localStorage.getItem('id')
         }
 
-        const getUrl = `http://localhost:8081/api/todo/updateTodo`;
-        const userResponse = await axios.post(getUrl, newData);
+        const getUrl = `http://localhost:5001/userAppointments/editAppointments`;
+        const userResponse = await axios.put(getUrl, newData);
         console.log(userResponse);
         if (userResponse) {
             setAlertUp(true);
@@ -183,7 +183,7 @@ const RenderCard = ({ todo }) => {
                     alertUp && (
                         <Alert severity="success">
                             <AlertTitle>Success</AlertTitle>
-                            Todo has Been Updated<strong> Kindly Reload the page </strong>
+                            appointment has Been Updated<strong> Kindly Reload the page </strong>
                         </Alert>
                     )
                 }
@@ -192,13 +192,13 @@ const RenderCard = ({ todo }) => {
                 {alert && (
                     <Alert severity="success">
                         <AlertTitle>Success</AlertTitle>
-                        Todo has Been Deleted<strong>--check it out!</strong>
+                        appointment has Been Deleted<strong>--check it out!</strong>
                     </Alert>
                 )}
             </div>
 
             <Card
-                key={todo.id}
+                key={appointment._id}
                 sx={{ maxWidth: 345, borderRadius: '25px', height: '380px', width: '400px', margin: '10px', backgroundColor: 'grey' }}
             >{/* <Card sx={{ maxWidth: 345 }} style={{ width: '400px' }}> */}
                 <CardHeader
@@ -212,8 +212,8 @@ const RenderCard = ({ todo }) => {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title={todo.title}
-                    subheader={todo.date}
+                    title={appointment.title + "sss" + appointment._id}
+                    subheader={appointment.date}
                     style={{ color: 'white' }}
                 />
                 <CardMedia
@@ -225,13 +225,13 @@ const RenderCard = ({ todo }) => {
                 />
                 <CardContent>
                     <Typography variant="body2" color="white">
-                        {todo.description}
+                        {appointment.description}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                     <Stack direction="row" spacing={2}>
                         <Button
-                            onClick={() => handleClickOpenEdit(todo.id)}
+                            onClick={() => handleClickOpenEdit(appointment._id)}
                             variant="outlined"
                             startIcon={<EditIcon sx={{ color: 'inherit' }} />}
                             sx={{
@@ -253,7 +253,7 @@ const RenderCard = ({ todo }) => {
                         </Button>
 
                         <Button
-                            onClick={() => handleClickDelete(todo.id)}
+                            onClick={() => handleClickDelete(appointment._id)}
                             variant="outlined"
                             startIcon={<DeleteIcon sx={{ color: 'inherit' }} />}
                             sx={{
@@ -280,7 +280,7 @@ const RenderCard = ({ todo }) => {
 
 
             <StyledDialog open={open} onClose={handleClose}>
-                <h3 style={{ marginLeft: '2%', marginTop: '2%', textAlign: 'center' }}>Update the Todo</h3>
+                <h3 style={{ marginLeft: '2%', marginTop: '2%', textAlign: 'center' }}>Update the Appointment</h3>
                 <DialogContent>
                     <form onSubmit={handleSubmit}>
                         <StyledInput
@@ -333,7 +333,7 @@ const RenderCard = ({ todo }) => {
                             </label>
                         </Box>
 
-                        <StyledButton type="submit">Save Todo</StyledButton>
+                        <StyledButton type="submit">Save Appointment</StyledButton>
                     </form>
                 </DialogContent>
             </StyledDialog>

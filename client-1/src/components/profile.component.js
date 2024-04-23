@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import axios from "axios";
 
-const API_URL = "http://localhost:8081/api/user/";
 
 const Profile = () => {
   const [redirect, setRedirect] = useState(null);
@@ -34,15 +33,6 @@ const Profile = () => {
     setCurrentUser(currentUser);
     setUserReady(true);
   }, []);
-
-  const deleteUser = async (id) => {
-    try {
-      await axios.post(`${API_URL}delete?id=${id}`);
-      console.log('User has been deleted');
-    } catch (error) {
-      console.error('Error deleting user:', error);
-    }
-  };
 
   if (redirect) {
     return <Navigate to={redirect} />;

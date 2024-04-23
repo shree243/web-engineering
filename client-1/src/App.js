@@ -84,14 +84,6 @@ class App extends Component {
               </Link>
             </li>
 
-            {/* {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )} */}
-
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
@@ -108,6 +100,8 @@ class App extends Component {
               </li>
             )}
           </div>
+
+
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">

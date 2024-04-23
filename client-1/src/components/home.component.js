@@ -62,7 +62,7 @@ const StyledButton = styled(Button)({
 });
 
 const Home = () => {
-  const url = "http://localhost:8081/api"
+  const url = ""
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -88,7 +88,7 @@ const Home = () => {
   const images = [
     {
       url: 'todoLogo.avif',
-      title: 'Add Todo',
+      title: 'Add Appointment',
       width: '20%',
     }
   ];
@@ -160,7 +160,6 @@ const Home = () => {
   const addTodo = () => {
     setOpen(true);
   }
-  const [allUsersTodos, setAllUsersTodos] = useState([])
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -193,27 +192,6 @@ const Home = () => {
     setFormData({ ...formData, [name]: checked });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // formData.append('userId', localStorage.getItem('id').toString())
-    const newData = {
-      ...formData,
-      userId: localStorage.getItem('id')
-    }
-    // const newData = {
-    //   userId: '123', // Sample user ID
-    //   title: 'Sample Title',
-    //   description: 'Sample Description',
-    //   date: '2023-12-31', // Sample date format
-    //   tag: 'Sample Tag',
-    //   important: true,
-    //   completed: false
-    // };
-    const getUrl = `http://localhost:8081/api/todo/saveTodo`;
-    const userResponse = await axios.post(getUrl, newData);
-    console.log(userResponse);
-  };
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -287,31 +265,37 @@ const Home = () => {
         <h1 style={{ marginTop: '10vh', color: 'white' }} className="content-heading">
           WHAT WE DO
         </h1>
+
+
+
+
+
+
+
         <div style={{ marginTop: '10vh', color: 'white' }} className="content-text">
-          <p style={{ textAlign: "center", color: 'white' }} >TodoList Eagle is a multi-award-winning Task Management and asset management business leveraging deep operational </p>
-          <p style={{ textAlign: "center", marginLeft: '270px', color: 'white' }}>expertise to drive exceptional value.</p>
-          <p style={{ textAlign: "center", marginLeft: '10px', color: 'white' }}>We approach our work with purpose and taste. We are a B Corp committed to a sustainable model.</p> <br />
+          <p style={{ textAlign: "center", color: 'white' }} > It's really easy to register for a Birmingham Council Website account. We just need your name, your home address and email address. </p>
+          <p style={{ textAlign: "center", marginLeft: '40px', color: 'white' }}>You can use your Council Website account to view your Sandwell council tax, benefits and business rates or housing balances, make payments,</p>
+          <p style={{ textAlign: "center", marginLeft: '100px', color: 'white' }}>request services, report problems and track any enquiries you put in to the council.</p> <br />
           <p style={{ marginLeft: '150px', color: 'white' }}>And we always leave buildings in a better state than we found them.</p><br />
         </div>
       </div>
 
-      {/* <h3 style={{ textAlign: 'center', color: 'white', marginTop: '50px ' }}>Kindly play this video to Check why should we use TodoList</h3> */}
       <div className="video-background">
         <video autoPlay muted loop className="video">
-          <source src="video.mp4" type="video/mp4" />
+          <source src="birmingham.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="text-overlay">
-          <p>Avoid this lengthy descussion and meeting and start using TodoList</p>
+          <p>Avoid queue and pay the bills through online payment.</p>
         </div>
       </div>
-      <h3 style={{ textAlign: 'center', color: 'white', marginTop: '50px ' }}>We're leading the smart Task Manager app Technology revolution</h3>
+      <h3 style={{ textAlign: 'center', color: 'white', marginTop: '50px ' }}>Life's greatest achievements often begin with the decision to improve ourselves.</h3>
 
       <div className="flex-row-container">
         <div className="flex-item">
-          <h2>Task Manager Projects Pioneers</h2>
+          <h2>Cost of Living Support</h2>
           <p style={{ marginTop: '20px' }}>
-            We lead the way in owning, financing and installing smart metering infrastructure assets right across the UK on behalf of energy suppliers.
+            Are your worried about the rising cost of food, House rents, energy bills and transportation cost ?
           </p>
           <canvas
             ref={canvasRef}
@@ -325,7 +309,7 @@ const Home = () => {
         <div className="flex-item">
           <h2>Sustainable Solutions</h2>
           <p style={{ marginTop: '20px' }}>
-            We are passionate about a sustainable energy ecosystem and using smart meters, EV charging and heat pumps solutions to reduce the nation’s carbon footprint.
+            Birmingham communities are coming together to aid international appeals and efforts to help those fleeing wars.
           </p>
           <canvas
             ref={canvasRef}
@@ -368,7 +352,7 @@ const Home = () => {
           ></canvas>
         </div>
         <div className="flex-item">
-          <img src="image1.jpg" alt='dd' style={{ width: '700px' }} />
+          <img src="brum2.webp" alt='dd' style={{ width: '500px' }} />
           <canvas
             ref={canvasRef}
             width={300} // Width of the canvas
@@ -381,7 +365,7 @@ const Home = () => {
       </div>
       <div className="containerClass">
 
-        <h3 style={{ marginTop: '50px', color: 'white', textAlign: "center" }}>Trusted By 130+ Clients</h3>
+        <h3 style={{ marginTop: '50px', color: 'white', textAlign: "center" }}>Voted By 130+ Clients</h3>
         <img style={{ marginLeft: '100px' }} src='clients.PNG' alt='fff' />
       </div>
       <Contact />

@@ -107,7 +107,7 @@ const StyledButton = styled(Button)({
 const BoardUser = () => {
   const [value, setValue] = useState(0); // Initial tab value
   const [alert, setAlert] = useState(false);
-  const [alertTodo, setAlertTodo] = useState(false);
+  const [alertAppointment, setAlertAppointment] = useState(false);
   const handleChangetab = (event, newValue) => {
     setValue(newValue);
   };
@@ -145,7 +145,7 @@ const BoardUser = () => {
   const images = [
     {
       url: 'todoLogo.avif',
-      title: 'Add Todo',
+      title: 'Book Appointment',
       width: '20%',
     }
   ];
@@ -214,17 +214,17 @@ const BoardUser = () => {
     transition: theme.transitions.create('opacity'),
   }));
 
-  const addTodo = () => {
+  const addAppointment = () => {
     setOpen(true);
   }
   const [dateImportant, setDateImportant] = useState([]);
-  const [allUsersTodos, setAllUsersTodos] = useState([{}])
+  const [allUsersAppointment, setAllUsersAppointment] = useState([{}])
   const [sortedDataAscending, setSortedDataAscending] = useState([]);
   const [sortedDataDescending, setSortedDataDescending] = useState([]);
   const [alertDateAs, setAlertDateAs] = useState(false);
   const [alertDateDs, setAlertDateDs] = useState(false);
-  const [allUsersImportantTodos, setAllUsersImportantTodos] = useState([{}])
-  const [allUsersCompletedTodos, setAllUsersCompletedTodos] = useState([{}])
+  const [allUsersImportantAppointment, setAllUsersImportantAppointment] = useState([{}])
+  const [allUsersCompletedAppointment, setAllUsersCompletedAppointment] = useState([{}])
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -266,7 +266,7 @@ const BoardUser = () => {
   useEffect(() => {
     if (dateImportant) {
       const timer = setTimeout(() => {
-        setAlertTodo(false);
+        setAlertAppointment(false);
       }, 5000);
 
       return () => clearTimeout(timer);
@@ -290,7 +290,7 @@ const BoardUser = () => {
       ...formData,
       userId: localStorage.getItem('id')
     }
-    const getUrl = `http://localhost:8081/api/todo/saveTodo`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments`;
     const userResponse = await axios.post(getUrl, newData);
     console.log(userResponse);
     if (userResponse) {
@@ -322,7 +322,7 @@ const BoardUser = () => {
     const imagePath = `${imageFilenames[randomIndex]}`;
 
     setRandomImage(imagePath);
-    getAllTodos();
+    getAllAppointments();
   }, []);
 
   const randomImageGenerator = () => {
@@ -340,7 +340,7 @@ const BoardUser = () => {
     const imagePath = `${imageFilenames[randomIndex]}`;
 
     setRandomImage(imagePath);
-    getAllTodos();
+    getAllAppointments();
   }
 
 
@@ -363,7 +363,7 @@ const BoardUser = () => {
   const dateFind = async () => {
 
     const userId = localStorage.getItem('id')
-    const getUrl = `http://localhost:8081/api/todo/todos/${userId}`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments/${userId}`;
     const res = await axios.get(getUrl);
     const dates = res.data.map(item => item.date);
     const validations = getDatesTwoDaysPrior(dates);
@@ -372,7 +372,7 @@ const BoardUser = () => {
     if (dtt.length > 0) {
       setDateImportant(prevDates => [...prevDates, ...dtt]);
     }
-    setAlertTodo(true);
+    setAlertAppointment(true);
 
     return validations;
   }
@@ -380,12 +380,12 @@ const BoardUser = () => {
     dateFind();
   }, [])
 
-  const getAllTodos = async () => {
+  const getAllAppointments = async () => {
     const userId = localStorage.getItem('id')
-    const getUrl = `http://localhost:8081/api/todo/todos/${userId}`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments/user/${userId}`;
     const res = await axios.get(getUrl);
-    const completedTodos = res.data.filter(item => item.completed);
-    const importantTodos = res.data.filter(item => item.important);
+    const completedAppointments = res.data.filter(item => item.completed);
+    const importantAppointments = res.data.filter(item => item.important);
     const sortedAscending = [res.data].sort((a, b) => a.date.localeCompare(b.date));
     const sortedDescending = [res.data].sort((a, b) => b.date.localeCompare(a.date));
 
@@ -412,9 +412,9 @@ const BoardUser = () => {
 
     setSortedDataDescending(newDatadescendingOrder);
     setSortedDataAscending(newDataascendingOrder);
-    setAllUsersTodos(res.data);
-    setAllUsersCompletedTodos(completedTodos);
-    setAllUsersImportantTodos(importantTodos);
+    setAllUsersAppointment(res.data);
+    setAllUsersCompletedAppointment(completedAppointments);
+    setAllUsersImportantAppointment(importantAppointments);
   }
 
 
@@ -427,18 +427,6 @@ const BoardUser = () => {
     setAlertDateDs(true);
   };
 
-  const handleClickDelete = async (id) => {
-    // const userId = localStorage.getItem('id')
-    const url = `http://localhost:8081/api/todo/todos/delete/${id}`;
-    const response = await axios.get(url);
-    console.log(response);
-  }
-  const handleClickOpenEdit = async (id) => {
-    const url = `http://localhost:8081/api/todo/getById/todos/${id}`;
-    const res = await axios.get(url);
-    console.log(res);
-    setOpen(true);
-  };
   const [content, setContent] = useState("");
 
   useEffect(() => {
@@ -484,11 +472,11 @@ const BoardUser = () => {
   }, []);
 
   const downloadFile = () => {
-    const jsonContent = JSON.stringify(allUsersTodos, null, 2); // JSON data with indentation for readability
+    const jsonContent = JSON.stringify(allUsersAppointment, null, 2); // JSON data with indentation for readability
     const blob = new Blob([jsonContent], { type: 'application/json' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'Todo_data.json';
+    link.download = 'Appointment_data.json';
     link.click();
   };
 
@@ -497,7 +485,7 @@ const BoardUser = () => {
     <>
       <button className="grey-button" onClick={downloadFile}>Download Appointment Report</button>
       <div style={{ marginTop: '5%', position: 'fixed', top: '20px', right: '20px', zIndex: 9999 }}>
-        {(dateImportant && alertTodo) && (
+        {(dateImportant && alertAppointment) && (
           dateImportant.map((item, index) => (
             <div style={{ marginTop: '3%' }}>
               <Alert severity="warning">
@@ -537,7 +525,7 @@ const BoardUser = () => {
           }}>
             {images.map((image) => (
               <ImageButton
-                onClick={addTodo}
+                onClick={addAppointment}
                 focusRipple
 
                 key={image.title}
@@ -612,27 +600,27 @@ const BoardUser = () => {
         </Tabs>
         <TabPanel value={value} index={0}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '20px' }}>
-            {allUsersTodos.map((todo) => <RenderCard key={todo.id} todo={todo} />)}
+            {allUsersAppointment.map((appointment) => <RenderCard key={appointment.id} appointment={appointment} />)}
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '20px' }}>
-            {allUsersImportantTodos.map((todo) => <RenderCard todo={todo} />)}
+            {allUsersImportantAppointment.map((appointment) => <RenderCard appointment={appointment} />)}
           </div>
         </TabPanel>
         <TabPanel value={value} index={2}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '20px' }}>
-            {allUsersCompletedTodos.map((todo) => <RenderCard todo={todo} />)}
+            {allUsersCompletedAppointment.map((appointment) => <RenderCard appointment={appointment} />)}
           </div>
         </TabPanel>
         <TabPanel value={value} index={3}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '20px' }}>
-            {sortedDataDescending.map((todo) => <RenderCard todo={todo} />)}
+            {sortedDataDescending.map((appointment) => <RenderCard appointment={appointment} />)}
           </div>
         </TabPanel>
         <TabPanel value={value} index={4}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '20px' }}>
-            {sortedDataAscending.map((todo) => <RenderCard todo={todo} />)}
+            {sortedDataAscending.map((appointment) => <RenderCard appointment={appointment} />)}
           </div>
         </TabPanel>
       </Box >
@@ -690,7 +678,7 @@ const BoardUser = () => {
               </label>
             </Box>
 
-            <StyledButton type="submit">Save Todo</StyledButton>
+            <StyledButton type="submit">Save appointment</StyledButton>
           </form>
         </DialogContent>
       </StyledDialog>

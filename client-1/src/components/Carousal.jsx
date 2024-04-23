@@ -5,18 +5,18 @@ const Carousal = () => {
     const data =
         [
             {
-                "image": 'caursal1.avif',
-                "title": "Subtracting from your list of priorities is as important as adding to it",
+                "image": 'council-c1.jpg',
+                "title": "Forster for Council - and change the life for a good",
                 "subTitle": "ddssfsfs"
             },
             {
-                "image": 'caursal2.jpg',
-                "title": "Each day I will accomplish one thing on my to do list",
+                "image": 'council-c-4.jpg',
+                "title": "Get your Council tax bill by Email",
                 "subTitle": "tryrtyr"
             },
             {
-                "image": 'caursal4.jpeg',
-                "title": "We need to do a better job of putting ourselves higher on our own to do list.",
+                "image": 'council-c-3.jpg',
+                "title": "Find More about May 2024 Election",
                 "subTitle": "ddssfsfs"
             }
         ]

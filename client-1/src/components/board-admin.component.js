@@ -10,7 +10,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-const API_URL = "http://localhost:8081/api/user/";
 
 
 
@@ -50,7 +49,7 @@ const BoardAdmin = () => {
   }, [alert]);
   const getAllUsers = async (id) => {
     // const userId = localStorage.getItem('id')
-    const url = `http://localhost:8081/api/user/findAllUsers`;
+    const url = ``;
     const response = await axios.get(url);
     console.log(response);
     setUsers(response.data);
@@ -85,7 +84,7 @@ const BoardAdmin = () => {
 
   const deleteUser = async (id) => {
     try {
-      const url = `http://localhost:8081/api/user/delete?id=${id}`;
+      const url = ``;
       const response = await axios.post(url);
       setAlert(true);
     } catch (error) {

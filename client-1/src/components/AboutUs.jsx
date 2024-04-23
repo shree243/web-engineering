@@ -12,7 +12,6 @@ const AboutUs = () => {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
-        opacity: '0.7',
     };
 
     const textStyle = {
@@ -28,23 +27,19 @@ const AboutUs = () => {
         <>
             <div style={containerStyle}>
                 <img
-                    src="slide1.PNG"
+                    src="brum13.jpg"
                     alt="Full-width"
                     style={imageStyle}
                 />
-                <div style={textStyle}>
-                    <h1>Pioneers in Task Management Project</h1>
-                    <p>Switching the UK to smart </p>
-                    <p>Task management Tool </p>
-                </div>
+
             </div>
             <div style={{ color: 'white', marginTop: '50px' }}>
-                <h2>We're leading the smart Task Management technology revolution</h2>
+                <h2>We're leading the smart council Management technology revolution</h2>
                 <p>
-                    We're passionate and committed to delivering smart projects for all and creating lasting change for our communities and the environment for generations to come.
+                    We're passionate and committed to delivering smart user friendly policies for all and creating lasting change for our communities and the environment for generations to come.
                 </p>
                 <br />
-                <p> Our expertise is to procure, install, service, finance, and track millions of smart Projects infrastructure assets that collectively make a big difference to Society.
+                <p> Our expertise is to generate, install, service, finance, and track millions of smart Projects infrastructure assets that collectively make a big difference to Society.
 
                 </p>
                 <br />
@@ -62,12 +57,12 @@ const AboutUs = () => {
                         We are committed to innovating, exploring and pushing the boundaries of what’s possible to deliver the infrastructure and technology that powers our world more sustainably</p>
                 </div>
                 <div className="flex-item">
-                    <img src="abt3.jpg" alt='dd' style={{ width: '500px', height: '500px' }} />
+                    <img src="brum12.avif" alt='dd' style={{ width: '500px', height: '500px' }} />
                 </div>
             </div>
             <div className="flex-row-container">
                 <div className="flex-item">
-                    <img src="abt3.jpg" alt='dd' style={{ width: '500px', height: '500px' }} />
+                    <img src="brum14.jpg" alt='dd' style={{ width: '500px', height: '500px' }} />
                 </div>
                 <div className="flex-item">
                     <p style={{ color: 'white', marginLeft: '0px' }}>Company Build on Heritage....</p>
