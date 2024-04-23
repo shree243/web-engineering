@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://web-engineering-25e7.onrender.com/";
+const API_URL = "http://localhost:5001/";
 
 class AuthService {
   login(username, password) {

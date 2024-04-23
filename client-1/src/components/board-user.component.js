@@ -119,7 +119,7 @@ const BoardUser = () => {
   ];
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const url = "https://web-engineering-25e7.onrender.com/api"
+  const url = "http://localhost:8081/api"
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -290,7 +290,7 @@ const BoardUser = () => {
       ...formData,
       userId: localStorage.getItem('id')
     }
-    const getUrl = `https://web-engineering-25e7.onrender.com/userAppointments/appointments`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments`;
     const userResponse = await axios.post(getUrl, newData);
     console.log(userResponse);
     if (userResponse) {
@@ -363,7 +363,7 @@ const BoardUser = () => {
   const dateFind = async () => {
 
     const userId = localStorage.getItem('id')
-    const getUrl = `https://web-engineering-25e7.onrender.com/userAppointments/appointments/${userId}`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments/${userId}`;
     const res = await axios.get(getUrl);
     const dates = res.data.map(item => item.date);
     const validations = getDatesTwoDaysPrior(dates);
@@ -382,7 +382,7 @@ const BoardUser = () => {
 
   const getAllAppointments = async () => {
     const userId = localStorage.getItem('id')
-    const getUrl = `https://web-engineering-25e7.onrender.com/userAppointments/appointments/user/${userId}`;
+    const getUrl = `http://localhost:5001/userAppointments/appointments/user/${userId}`;
     const res = await axios.get(getUrl);
     const completedAppointments = res.data.filter(item => item.completed);
     const importantAppointments = res.data.filter(item => item.important);
