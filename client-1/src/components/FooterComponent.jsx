@@ -204,7 +204,7 @@ const Footer = () => {
                             <Box className="col-lg-3 col-md-6">
                                 <Box className="f_widget company_widget">
                                     <Typography variant="h3" className="f-title f_600 t_color f_size_18">Get in Touch</Typography>
-                                    <Typography variant="p">Don’t miss any updates of our new templates and extensions.!</Typography>
+                                    <Typography variant="p">Don’t miss any updates of our new council keep update yourself..!</Typography>
                                     <form action="#" className="f_subscribe_two mailchimp" method="post" noValidate>
                                         <input type="text" name="EMAIL" className="form-control memail" placeholder="Email" />
                                         <button className="btn btn_get btn_get_two" type="submit">Subscribe</button>
@@ -214,14 +214,14 @@ const Footer = () => {
                                 </Box>
                             </Box>
                             <Box className="col-lg-3 col-md-6">
-                                <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+                                <h3 class="f-title f_600 t_color f_size_18">Council Options</h3>
                                 <ul class="list-unstyled f_list">
-                                    <li><a href="#">Company</a></li>
-                                    <li><a href="#">Android App</a></li>
-                                    <li><a href="#">ios App</a></li>
-                                    <li><a href="#">Desktop</a></li>
-                                    <li><a href="#">Projects</a></li>
-                                    <li><a href="#">My tasks</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Billing Section</a></li>
+                                    <li><a href="#">Complaints</a></li>
+                                    <li><a href="#">Waste Management</a></li>
                                 </ul>
                             </Box>
                             <Box className="col-lg-3 col-md-6">

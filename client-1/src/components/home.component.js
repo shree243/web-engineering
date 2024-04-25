@@ -273,7 +273,7 @@ const Home = () => {
 
 
         <div style={{ marginTop: '10vh', color: 'white' }} className="content-text">
-          <p style={{ textAlign: "center", color: 'white' }} > It's really easy to register for a Birmingham Council Website account. We just need your name, your home address and email address. </p>
+          <p style={{ textAlign: "center", color: 'white' }} > It's really easy to register for a Mumbai Council Website account. We just need your name, your home address and email address. </p>
           <p style={{ textAlign: "center", marginLeft: '40px', color: 'white' }}>You can use your Council Website account to view your Sandwell council tax, benefits and business rates or housing balances, make payments,</p>
           <p style={{ textAlign: "center", marginLeft: '100px', color: 'white' }}>request services, report problems and track any enquiries you put in to the council.</p> <br />
           <p style={{ marginLeft: '150px', color: 'white' }}>And we always leave buildings in a better state than we found them.</p><br />
@@ -309,7 +309,7 @@ const Home = () => {
         <div className="flex-item">
           <h2>Sustainable Solutions</h2>
           <p style={{ marginTop: '20px' }}>
-            Birmingham communities are coming together to aid international appeals and efforts to help those fleeing wars.
+            Mumbai communities are coming together to aid international appeals and efforts to help those fleeing wars.
           </p>
           <canvas
             ref={canvasRef}
